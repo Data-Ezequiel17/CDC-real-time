@@ -2,13 +2,13 @@
 A containerized Change Data Capture pipeline that displays in real-time all changes occurring in a Postgres database using Debezium, Kafka and Node.js websocket server
 
 ## Technologies 
-Python \
-Javascript/HTML \
-Node.js \
-Kafka \
-Docker \
-Debezium \
-Postgres
++ Python 
++ Javascript/HTML
++ Node.js 
++ Kafka 
++ Docker 
++ Debezium 
++ Postgres
 
 
 ## About the project

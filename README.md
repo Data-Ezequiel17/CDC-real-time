@@ -23,3 +23,4 @@ A Python script using the Faker library is used to create fake, but realistic lo
 simulate the CRUD operations that happnen on an e-commerce database everyday. This includes Inserts, Updates, Reads, and Deletes. 
 When these changes are made on the tables they are broadcasted on the dashboard instantly.
 
+

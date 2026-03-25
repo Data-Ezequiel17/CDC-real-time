@@ -22,5 +22,15 @@ Node.js websocket server dashboard which can be accessed on a browser. \
 A Python script using the Faker library is used to create fake, but realistic looking data to 
 simulate the CRUD operations that happnen on an e-commerce database everyday. This includes Inserts, Updates, Reads, and Deletes. 
 When these changes are made on the tables they are broadcasted on the dashboard instantly.
-
-
+\
+## How things works
+The project uses docker compose to spin up 5 containers. A Postgres container, Kafka container, Debezium container, node.js container, and Kafka-ui container.
+The Kafka-ui is just used for the sake of having an interface for Kafka.
+The postgres container connects to the Debezium container, which connects to the Kafka container. This is the core of the pipeline. 
+Debezium(Producer) captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) and streams these changes as event records to Kafka topics.
+Once the changes are sent to Kafka topics in the Kafka server a consumer will be subscribed to these topics via the Kafkajs library in node.js server. 
+This data is then sent to a dashboard via websocket connection.
+\
+## Features
+-Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database
+-Able to click on the 'Live Event Chart' and zoom in to a specific CRUD operations happening in real-time.

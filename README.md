@@ -32,7 +32,6 @@ Once the changes are sent to Kafka topics in the Kafka server a consumer will be
 This data is then sent to a dashboard via websocket connection.
 
 ## Features
--Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database
--Able to click on the 'Live Event Chart' and zoom in to a specific CRUD operations happening in real-time..
 + Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database
 + Able to click on the 'Live Event Chart' and zoom in to a specific CRUD operations happening in real-time.
++ Hover over certain charts and get more details.

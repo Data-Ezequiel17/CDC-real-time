@@ -25,9 +25,11 @@ When these changes are made on the tables they are broadcasted on the dashboard 
 
 ## How things works
 The project uses docker compose to spin up 5 containers. A Postgres container, Kafka container, Debezium container, node.js container, and Kafka-ui container.
-The Kafka-ui is just used for the sake of having an interface for Kafka.
-The postgres container connects to the Debezium container, which connects to the Kafka container. This is the core of the pipeline. 
-Debezium(Producer) captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) and streams these changes as event records to Kafka topics.
+The Kafka-ui is just used for the sake of having an interface for Kafka. \
+\
+The postgres container connects to the Debezium container, which connects to the Kafka container. This is the core of the pipeline. \
+\
+Debezium captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) then serializes this data into json and streams the changes as event records to Kafka connect, which streams this data to Kafka topics.
 Once the changes are sent to Kafka topics in the Kafka server a consumer will be subscribed to these topics via the Kafkajs library in node.js server. 
 This data is then sent to a dashboard via websocket connection.
 

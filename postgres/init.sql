@@ -213,7 +213,7 @@ CREATE TABLE ecommerce.cdc_metrics (
 
 CREATE INDEX idx_cdc_metrics_table_operation ON ecommerce.cdc_metrics(table_name, operation);
 
-
+-- tables that should be monitored for updates and sent to debezium
 CREATE PUBLICATION cdc_publication FOR TABLE 
     ecommerce.customers,
     ecommerce.products,

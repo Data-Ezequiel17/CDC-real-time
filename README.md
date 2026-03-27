@@ -37,3 +37,23 @@ This data is then sent to a dashboard via websocket connection.
 + Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database.
 + Able to click on the 'Live Event Chart' and zoom in to a specific CRUD operations happening in real-time.
 + Hover over certain charts and get more details.
+
+## Project files description
+consumer folder
++ **consumer.py**  - python script containing consumer logic with help of confluent_kafa python library
++ **dockerfile** (consumer)  - blueprint for the cdc-consumer docker image
++ **requirements.txt**  - specify the external packages and libraries required for the cdc-consumer image to run
+
+debezium folder
++ **postgres-connector.json**  - configuration file used to register and define the behavior of the Debezium PostgreSQL connector within the Kafka Connect framework.
+
+postgres folder
++ **init.sql**  - SQL script used for database initialization, which involves setting up the initial database structure, tables, and data
++ **pg_hba.conf**  - primary configuration file for controlling client authentication in PostgreSQL
++ **postgresql.conf**  - primary configuration file for the PostgreSQL database server, used to control various runtime parameters like memory usage, logging, and connection settings
+
+scripts folder
++ **generate-data.py**  - python script that generates fake, but realistic data to mimick a live production database environment
++ **requirements.txt**  - specify the external packages and libraries required for the python virtual env
+
++ **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications

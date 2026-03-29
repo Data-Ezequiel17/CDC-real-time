@@ -40,20 +40,25 @@ This data is then sent to the dashboard on your browser via websocket connection
 
 ## Project files description
 consumer folder
-+ **consumer.py**  - python script containing consumer logic with help of confluent_kafa python library
-+ **dockerfile** (consumer)  - blueprint for the cdc-consumer docker image
-+ **requirements.txt**  - specify the external packages and libraries required for the cdc-consumer image to run
++ **consumer.py**  - python script containing consumer logic with help of confluent_kafa python library.
++ **Dockerfile** (consumer)  - blueprint for the cdc-consumer docker image.
++ **requirements.txt**  - specify the external packages and libraries required for the cdc-consumer image to run.
+
+dashboard folder
++ **index.HTML** - dashboard code. where node.js server sends the cdc data.
++ **Dockerfile** (dashboard) - blueprint for the dashboard docker image.
++ **package.json** - heart of any Node.js project, serving as a manifest that records essential metadata, dependencies, and script commands.
++ **server.js** - server-side code. Responsible for creating and starting the node.js websocket server.
 
 debezium folder
-+ **postgres-connector.json**  - configuration file used to register and define the behavior of the Debezium PostgreSQL connector within the Kafka Connect framework.
++ **postgres-connector.json**  - config file to register/define the behavior of Debezium PostgreSQL connector within Kafka Connect framework.
 
 postgres folder
-+ **init.sql**  - SQL script used for database initialization, which involves setting up the initial database structure, tables, and data
-+ **pg_hba.conf**  - primary configuration file for controlling client authentication in PostgreSQL
-+ **postgresql.conf**  - primary configuration file for the PostgreSQL database server, used to control various runtime parameters like memory usage, logging, and connection settings
++ **init.sql**  - SQL script used for database initialization, which involves setting up the initial database structure, tables, and data.
++ **pg_hba.conf**  - primary configuration file for controlling client authentication in PostgreSQL.
++ **postgresql.conf**  - primary config file for PostgreSQL database server, used to control parameters like memory usage, logging, and connection settings.
 
 scripts folder
-+ **generate-data.py**  - python script that generates fake, but realistic data to mimick a live production database environment
-+ **requirements.txt**  - specify the external packages and libraries required for the python virtual env
-
-+ **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications
++ **generate-data.py**  - python script that generates fake, but realistic data to mimick a live production database environment.
++ **requirements.txt**  - specify the external packages and libraries required for the python virtual env.
++ **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications.

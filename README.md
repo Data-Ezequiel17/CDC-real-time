@@ -30,8 +30,8 @@ The Kafka-ui is just used for the sake of having an interface for Kafka. \
 The postgres container connects to the Debezium container, which connects to the Kafka container. This is the core of the pipeline. \
 \
 Debezium captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) then serializes this data into json and streams the changes as event records to Kafka connect, which streams this data to Kafka topics.
-Once the changes are sent to Kafka topics in the Kafka server a consumer will be subscribed to these topics via the Kafkajs library in node.js server. 
-This data is then sent to a dashboard via websocket connection.
+Once the changes are sent to Kafka topics in the Kafka server a consumer(node.js server) will be subscribed to these topics and poll the data in real-time via the Kafkajs library. 
+This data is then sent to the dashboard on your browser via websocket connection.
 
 ## Features
 + Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database.

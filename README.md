@@ -62,6 +62,9 @@ scripts folder
 + **requirements.txt**  - specify the external packages and libraries required for the python virtual env.
 + **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications.
 
+
+
+
 ## How to run
 **prequalifications:**
 + have docker desktop installed and running

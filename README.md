@@ -61,3 +61,74 @@ scripts folder
 + **generate-data.py**  - python script that generates fake, but realistic data to mimick a live production database environment.
 + **requirements.txt**  - specify the external packages and libraries required for the python virtual env.
 + **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications.
+
+## How to run
+**prequalifications:**
++ have docker desktop installed and running
+
+**STEP 1** - create a python virtual environment in your IDE by running these two commands in terminal: 
+```bash 
+python -m venv venv
+```
+```bash 
+venv\Scripts\activate
+```
+
+**STEP 2** - once virtual environment is running, run pip install command to install requirements for the generate-data.py script:
+```bash
+ pip install -r scripts/requirements.txt 
+```
+
+**STEP 3** - once that is done, run docker compose up:
+```bash 
+docker compose up -d
+```
+
+**STEP 4** - When all containers are up and running(takes few mins) go to debezium container logs in docker desktop and scroll to bottom till you see ```'finished starting connectors and tasks'```.
+Then run the command below. If you have a mac, run the first. Else run the second command for windows. 
+This postgres-connector.json) and sends it to your local Kafka Connect service to start a Debezium process that captures changes from a PostgreSQL database. 
+The postgres-connector.json config file tells Kafka Connect how to connect to your PostgreSQL database 
+
++ for mac:
+
+```bash
+curl -X POST http://localhost:8083/connectors -H "Accept: application/json" -H "Content-Type: application/json" -d @"debezium/postgres-connector.json"
+```
++ for windows:
+```bash
+Invoke-WebRequest -Uri http://localhost:8083/connectors `                        
+                   -Method Post `                                                                                                            
+                   -Headers @{                                                                                                               
+                       "Accept" = "application/json"
+                      "Content-Type" = "application/json"
+                  } `
+                   -InFile "debezium/postgres-connector.json"
+```
+After running one of the commands from above go to http://localhost:8083/connectors and check to see that the connector file is there:```["postgres-cdc-connector"]```
+
+to see dashboard go to http://localhost:3000/ \
+to see kafka-ui go to http://localhost:8080/
+
+**STEP 5** - finally run the python script to generate data: 
+
+```bash
+python scripts/generate-data.py --interval 2
+```
+you can modify the interval to anything you want. This number is the interval at which data will be generated. So '--interval 2' means data will be generated every 2 seconds. 
+'--interval 0.5' means every 0.5 secs data will be generated, etc..
+
+\
+\
+**TO TERMINATE PROGRAMS** 
+
++ to end the generate_data.py script: \
+```Ctrl+C```
+
++ to shut down docker containers:
+```bash
+docker compose down -v
+```
++ to end python virtual environment:
+```bash
+deactivate
+```

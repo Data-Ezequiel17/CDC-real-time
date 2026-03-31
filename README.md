@@ -44,7 +44,7 @@ consumer folder
 + **requirements.txt**  - specify the external packages and libraries required for the cdc-consumer image to run.
 
 dashboard folder
-+ **index.HTML** - dashboard code. where node.js server sends the cdc data.
++ **index.html** - dashboard code. where node.js server sends the cdc data.
 + **Dockerfile** (dashboard) - blueprint for the dashboard docker image.
 + **package.json** - heart of any Node.js project, serving as a manifest that records essential metadata, dependencies, and script commands.
 + **server.js** - server-side code. Responsible for creating and starting the node.js websocket server.

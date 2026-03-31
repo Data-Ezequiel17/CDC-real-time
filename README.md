@@ -85,9 +85,8 @@ docker compose up -d
 ```
 
 **STEP 4** - When all containers are up and running(takes few mins) go to debezium container logs in docker desktop and scroll to bottom till you see ```'finished starting connectors and tasks'```.
-Then run the command below. If you have a mac, run the first. Else run the second command for windows. 
-This postgres-connector.json) and sends it to your local Kafka Connect service to start a Debezium process that captures changes from a PostgreSQL database. 
-The postgres-connector.json config file tells Kafka Connect how to connect to your PostgreSQL database 
+Then run the command below. If you have a mac, run the first. Else run the second command for windows. This command takes the configuration file (postgres-connector.json) and sends it to your local Kafka Connect service to start a Debezium process that captures changes from a PostgreSQL database. 
+The postgres-connector.json config file tells Kafka Connect how to connect to your PostgreSQL database. 
 
 + for mac:
 

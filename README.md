@@ -24,10 +24,9 @@ simulate the CRUD operations that happnen on an e-commerce database everyday. Th
 When these changes are made on the tables they are broadcasted on the dashboard instantly.
 
 ## How things works
-The project uses docker compose to spin up 5 containers. A Postgres container, Kafka container, Debezium container, node.js container, and Kafka-ui container.
-The Kafka-ui is just used for the sake of having an interface for Kafka. \
+The project uses docker compose to spin up 6 containers: A Postgres container, Kafka container, Debezium container, cdc-consumer container, Node.js container, and Kafka-ui container. \
 \
-The postgres container connects to the Debezium container, which connects to the Kafka container. This is the core of the pipeline. \
+The Kafka-ui is just used for the sake of having an interface for Kafka. The cdc-consumer container hosts the consumer.py script. This is one of the two consumers subcribed to the kafka topics. The other consumer is the dashboard. The cdc-consumer basically shows the same thing the dashboard does, but in the logs(in docker desktop). \
 \
 Debezium captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) then serializes this data into json and streams the changes as event records to Kafka connect, which streams this data to Kafka topics.
 Once the changes are sent to Kafka topics in the Kafka server a consumer(node.js server) will be subscribed to these topics and poll the data in real-time via the Kafkajs library. 
@@ -40,7 +39,7 @@ This data is then sent to the dashboard on your browser via websocket connection
 
 ## Project files description
 consumer folder
-+ **consumer.py**  - python script containing consumer logic with help of confluent_kafa python library.
++ **consumer.py**  - python script containing consumer logic with help of confluent_kafka python library.
 + **Dockerfile** (consumer)  - blueprint for the cdc-consumer docker image.
 + **requirements.txt**  - specify the external packages and libraries required for the cdc-consumer image to run.
 

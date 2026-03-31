@@ -14,14 +14,14 @@
         }
         
         body {
-            background: #ffffff;
+            background: #F8F8F8;
             min-height: 100vh;
         }
 
         .glass-card {
             background: #ffffff;
             border: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0);
         }
         
         .event-card {
@@ -131,7 +131,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <div class="text-3xl">🚀</div>
+                    <div class="text-3xl"></div>
                     <div>
                         <h1 class="text-2xl font-bold text-gray-900">
                             Ezequiel's CDC Dashboard
@@ -154,9 +154,9 @@
 
     <main class="container mx-auto px-6 py-8">
         <!-- Stats Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
             <!-- Total Events -->
-            <div class="glass-card rounded-xl p-6">
+            <div class="glass-card  p-6 border-4">
                 <div class="text-gray-600 text-sm mb-2">Total Events</div>
                 <div class="text-3xl font-bold stat-value" id="totalEvents">0</div>
                 <div class="text-xs text-gray-500 mt-1">
@@ -165,41 +165,41 @@
             </div>
             
             <!-- Creates -->
-            <div class="glass-card rounded-xl p-6 border-l-4 border-green-500">
-                <div class="text-gray-600 text-sm mb-2">➕ Creates</div>
+            <div class="glass-card rounded-xl p-6 border-x-4">
+                <div class="text-gray-600 text-sm mb-2">Creates</div>
                 <div class="text-3xl font-bold text-green-600" id="creates">0</div>
             </div>
 
             <!-- Updates -->
-            <div class="glass-card rounded-xl p-6 border-l-4 border-blue-500">
-                <div class="text-gray-600 text-sm mb-2">✏️ Updates</div>
+            <div class="glass-card rounded-xl p-6 border-x-4">
+                <div class="text-gray-600 text-sm mb-2">Updates</div>
                 <div class="text-3xl font-bold text-blue-600" id="updates">0</div>
             </div>
 
             <!-- Deletes -->
-            <div class="glass-card rounded-xl p-6 border-l-4 border-red-500">
-                <div class="text-gray-600 text-sm mb-2">❌ Deletes</div>
+            <div class="glass-card rounded-xl p-6 border-x-4">
+                <div class="text-gray-600 text-sm mb-2">Deletes</div>
                 <div class="text-3xl font-bold text-red-600" id="deletes">0</div>
             </div>
 
             <!-- Reads -->
-            <div class="glass-card rounded-xl p-6 border-l-4 border-purple-500">
-                <div class="text-gray-600 text-sm mb-2">📖 Reads</div>
+            <div class="glass-card rounded-xl p-6 border-x-4">
+                <div class="text-gray-600 text-sm mb-2">Reads</div>
                 <div class="text-3xl font-bold text-purple-600" id="reads">0</div>
             </div>
 
             <!-- Uptime -->
-            <div class="glass-card rounded-xl p-6 border-l-4 border-yellow-500">
-                <div class="text-gray-600 text-sm mb-2">⏱️ Uptime</div>
+            <div class="glass-card p-9 border-4">
+                <div class="text-gray-600 text-sm mb-2">Uptime</div>
                 <div class="text-xl font-bold text-yellow-600" id="uptime">00:00:00</div>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Chart Section -->
-            <div class="lg:col-span-2 glass-card rounded-xl p-6">
+            <div class="lg:col-span-2 glass-card rounded-xl p-6 border-4">
                 <h2 class="text-xl font-semibold mb-4 flex items-center">
-                    <span class="mr-2">📊</span> Events by Table
+                    <span class="mr-2"></span> Events by Table
                 </h2>
                 <div class="h-64">
                     <canvas id="tableChart"></canvas>
@@ -207,9 +207,9 @@
             </div>
             
             <!-- Operation Distribution -->
-            <div class="glass-card rounded-xl p-6">
+            <div class="glass-card rounded-xl p-6 border-4">
                 <h2 class="text-xl font-semibold mb-4 flex items-center">
-                    <span class="mr-2">🎯</span> Operation Types
+                    <span class="mr-2"></span> Operation Types
                 </h2>
                 <div class="h-64">
                     <canvas id="operationChart"></canvas>
@@ -218,78 +218,32 @@
         </div>
 
         <!-- Event Stream -->
-        <div class="mt-8 glass-card rounded-xl p-6">
+        <div class="mt-8 glass-card rounded-xl p-6 border-4">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl font-semibold flex items-center text-gray-900">
-                    <span class="mr-2">📡</span> Live Event Stream
+                    <span class="mr-2"></span> Live Event Stream
                     <span class="ml-3 px-2 py-1 text-xs bg-green-100 text-green-700 border border-green-300 rounded-full pulse-live">
                         LIVE
                     </span>
                 </h2>
-                <button onclick="clearEvents()" class="px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition">
+                <button onclick="clearEvents()" class="px-2 py-2 text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition">
                     Clear Events
                 </button>
             </div>
             
             <div id="eventStream" class="h-96 overflow-y-auto scrollbar-thin space-y-2">
                 <div class="text-center text-gray-600 py-8">
-                    <div class="text-4xl mb-2">👂</div>
+                    <div class="text-4xl mb-2">📡</div>
                     <p>Waiting for CDC events...</p>
                 </div>
             </div>
         </div>
         
-        <!-- Architecture Info -->
-        <div class="mt-8 glass-card rounded-xl p-6">
-            <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <span class="mr-2">🏗️</span> Project Architecture 
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-9 gap-4 items-center">
-                <div class="text-center p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                    <div class="text-3xl mb-2">🔢</div>
-                    <div class="font-semibold text-gray-900">Python Faker Data</div>
-                    <div class="text-xs text-gray-600">Python Script</div>
-                </div>
-
-                <div class="text-center text-2xl text-black-400">→</div>
-                    <div class="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                    <div class="text-3xl mb-2">🐘</div>
-                    <div class="font-semibold text-gray-900">PostgreSQL</div>
-                    <div class="text-xs text-gray-600">Source Database</div>
-                </div>
-
-                <div class="text-center text-2xl text-black-400">→</div>
-
-                <div class="text-center p-4 bg-orange-50 rounded-lg border border-orange-200">
-                    <div class="text-3xl mb-2">🔄</div>
-                    <div class="font-semibold text-gray-900">Debezium</div>
-                    <div class="text-xs text-gray-600">CDC Connector</div>
-                </div>
-
-                <div class="text-center text-2xl text-black-400">→</div>
-
-                <div class="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                    <div class="text-3xl mb-2">📨</div>
-                    <div class="font-semibold text-gray-900">Kafka</div>
-                    <div class="text-xs text-gray-600">Event Streaming</div>
-                </div>
-
-                <div class="text-center text-2xl text-black-400">→</div>
-
-                <div class="text-center p-4 bg-white-50 rounded-lg border border-white-200">
-                    <div class="text-3xl mb-2">📱</div>
-                    <div class="font-semibold text-gray-900">Real-Time Dashboard</div>
-                    <div class="text-xs text-gray-600">Node.js Websocket Server</div>
-                </div>
-
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
     <footer class="text-center py-6 text-gray-600 text-sm border-t border-gray-200 mt-8">
-        <p>🚀  CDC | PostgreSQL + Debezium + Kafka + Node.js </p>
+        <p>  CDC | PostgreSQL + Debezium + Kafka + Node.js </p>
         <p class="mt-1">Built by Ezequiel Regueira</p>
     </footer>
 
@@ -725,7 +679,7 @@
             eventsList = [];
             document.getElementById('eventStream').innerHTML = `
                 <div class="text-center text-gray-600 py-8">
-                    <div class="text-4xl mb-2">👂</div>
+                    <div class="text-4xl mb-2">📡</div>
                     <p>Waiting for CDC events...</p>
                 </div>
             `;

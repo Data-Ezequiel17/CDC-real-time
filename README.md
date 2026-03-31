@@ -32,6 +32,8 @@ Debezium captures row-level changes in a PostgreSQL database by reading its Writ
 Once the changes are sent to Kafka topics in the Kafka server a consumer(node.js server) will be subscribed to these topics and poll the data in real-time via the Kafkajs library. 
 This data is then sent to the dashboard on your browser via websocket connection.
 
+https://github.com/user-attachments/assets/b0e5954a-0834-43d9-b780-65b2f22aba73
+
 ## Features
 + Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database.
 + Able to click on the 'Live Event Chart' and zoom in to a specific CRUD operations happening in real-time.
@@ -134,3 +136,9 @@ docker compose down -v
 ```bash
 deactivate
 ```
+
+
+
+
+
+

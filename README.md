@@ -1,5 +1,6 @@
 # CDC-real-time
 A containerized Change Data Capture pipeline that displays in real-time all changes occurring in a Postgres database using Debezium, Kafka and Node.js websocket server
+<img width="2240" height="1200" alt="image" src="https://github.com/user-attachments/assets/47234c60-1f27-46f2-bfa8-e5de5abbc093" />
 
 ## Technologies 
 + Python 

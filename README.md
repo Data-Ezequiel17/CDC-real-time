@@ -27,7 +27,7 @@ When these changes are made on the tables they are broadcasted on the dashboard 
 ## How things works
 The project uses docker compose to spin up 6 containers: A Postgres container, Kafka container, Debezium container, cdc-consumer container, Node.js container, and Kafka-ui container. \
 \
-The Kafka-ui is just used for the sake of having an interface for Kafka. The cdc-consumer container hosts the consumer.py script. This is one of the two consumers subcribed to the kafka topics. The other consumer is the dashboard. The cdc-consumer basically shows the same thing the dashboard does, but in the logs(in docker desktop). \
+The Kafka-ui is just used for the sake of having an interface for Kafka. The cdc-consumer container hosts a python consumer via the consumer.py script. This is one of the two consumers subcribed to the kafka topics via confluent_kafka library. The other consumer is the Node.js websocket server which sends the data to the dashboard. The cdc-consumer basically shows the same thing the dashboard does, but in the logs(in docker desktop). \
 \
 Debezium captures row-level changes in a PostgreSQL database by reading its Write-Ahead Log (WAL) then serializes this data into json and streams the changes as event records to Kafka connect, which streams this data to Kafka topics.
 Once the changes are sent to Kafka topics in the Kafka server a consumer(node.js server) will be subscribed to these topics and poll the data in real-time via the Kafkajs library. 

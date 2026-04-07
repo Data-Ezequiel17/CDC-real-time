@@ -106,7 +106,7 @@ deactivate
 ```
 
 ## Features
-+ Displays multiple real-time tables showing Create, Read, Update, Delete operations from postgres database.
++ Displays multiple real-time tables showing Create, Read, Update, Delete operations from the source postgres database.
 + Able to click on the 'Live Event Chart' and zoom into a specific CRUD operations happening in real-time.
 + Hover over certain charts and get more details.
 

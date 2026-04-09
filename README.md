@@ -2,7 +2,9 @@
 A containerized Change Data Capture pipeline that displays in real-time all changes occurring in a Postgres database using Debezium, Kafka and Node.js websocket server
 <img width="2240" height="1200" alt="image" src="https://github.com/user-attachments/assets/47234c60-1f27-46f2-bfa8-e5de5abbc093" />
 
-## Technologies 
+<details> 
+<summary><strong>Technologies</strong></summary>
+ 
 + Python 
 + Javascript/HTML
 + Node.js 
@@ -10,9 +12,12 @@ A containerized Change Data Capture pipeline that displays in real-time all chan
 + Docker 
 + Debezium 
 + Postgres
+ 
+</details>
 
+<details> 
+<summary><strong>About the project</strong></summary>
 
-## About the project
 This project is a production-ready real-time CDC(Capture Data Change) pipeline. It uses Debezium to capture any changes (Inserts, Updates, Reads, Deletes) in a 
 Postgres database and sends this info to Kafka topics in a Kafka server. \
 \
@@ -23,6 +28,8 @@ Node.js websocket server dashboard which can be accessed on a browser. \
 A Python script using the Faker library is used to create fake, but realistic looking data to 
 simulate the CRUD operations that happnen on an e-commerce database everyday. This includes Inserts, Updates, Reads, and Deletes. 
 When these changes are made on the tables they are broadcasted on the dashboard instantly.
+
+</details>
 
 ## How things works
 The project uses docker compose to spin up 6 containers: A Postgres container, Kafka container, Debezium container, cdc-consumer container, Node.js container, and a Provectus Kafka-ui container. \

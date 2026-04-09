@@ -105,12 +105,17 @@ docker compose down -v
 deactivate
 ```
 
-## Features
+<details> 
+<summary><strong>Features</strong></summary>
+
 + Displays multiple real-time tables showing Create, Read, Update, Delete operations from the source postgres database.
 + Able to click on the 'Live Event Chart' and zoom into a specific CRUD operations happening in real-time.
 + Hover over certain charts and get more details.
-
-## Project files description
+</details>
+ 
+<details>
+<summary><strong>Project files description</strong></summary>
+ 
 consumer folder
 + **consumer.py**  - python script containing consumer logic with help of confluent_kafka python library.
 + **Dockerfile** (consumer)  - blueprint for the cdc-consumer docker image.
@@ -134,8 +139,7 @@ scripts folder
 + **generate-data.py**  - python script that generates fake, but realistic data to mimick a live production database environment.
 + **requirements.txt**  - specify the external packages and libraries required for the python virtual env.
 + **docker_compose.yml**  - YAML configuration file used by Docker Compose to define and manage multi-container Docker applications.
-
-
+</details>
 
 
 
